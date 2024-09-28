@@ -21,21 +21,25 @@ namespace HepsiApi.Persistence.Repositories
         // veritabanında karşılık gelen tabloyu temsil eder. 
         private DbSet<T> Table { get => dbContext.Set<T>(); }
 
+        // Veritabanına tek bir entity ekler.
         public async Task AddAsync(T entity)
         {
             await Table.AddAsync(entity);
         }
 
+        // Birden fazla entity ekler.
         public async Task AddRangeAsync(IList<T> entities)
         {
             await Table.AddRangeAsync(entities);
         }
 
+        // Veritabanından bir entity'yi tamamen siler.
         public async Task HardDeleteAsync(T entity)
         {
             await Task.Run(() => Table.Remove(entity));
         }
 
+        // Veritabanındaki mevcut bir entity'yi günceller.
         public async Task<T> UpdateAsync(T entity)
         {
             await Task.Run(() => Table.Update(entity));
