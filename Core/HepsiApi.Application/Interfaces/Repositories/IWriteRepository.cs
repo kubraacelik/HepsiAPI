@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace HepsiApi.Application.Interfaces.Repositories
 {
+    // Write işlemleri, veri tabanına veri ekleme, güncelleme ve silme işlemlerini içerir.
     public interface IWriteRepository<T> where T : class, IEntityBase, new()
     {
         Task AddAsync(T entity);
