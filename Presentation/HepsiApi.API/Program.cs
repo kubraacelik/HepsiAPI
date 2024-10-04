@@ -1,4 +1,5 @@
 using HepsiApi.Persistence;
+using HepsiApi.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,8 @@ builder.Configuration
 
 // uygulamanýn hizmetlerine veritabaný baðlamýný (DbContext) ekler.
 builder.Services.AddPersistence(builder.Configuration);
+// baðýmlýlýklar için eklendi
+builder.Services.AddApplication();
 
 var app = builder.Build();
 
